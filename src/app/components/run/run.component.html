@@ -1,0 +1,27 @@
+<p>run works!</p>
+<ng-container *ngIf="lines">
+{{lines.length}}
+<br>
+
+<p-table [value]="lines">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Power</th>
+            <th>Speed</th>
+            <th>Hearthrate</th>
+            <th>Distance</th>
+            <th>Time</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-line>
+        <tr>
+            <td>{{line.power}} </td>
+            <td>{{line.speed}} </td>
+            <td>{{line.hearthrate}} </td>
+            <td>{{line.distance}} </td>
+            <td>{{line.timezone}} </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+</ng-container>
