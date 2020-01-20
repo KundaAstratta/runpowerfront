@@ -9,14 +9,17 @@ import { PowerActivityDTO } from 'src/app/shared-data/power-activity-dto';
 })
 export class RunComponent implements OnInit {
 
-  lines : PowerActivityDTO[] = [];
+  powerActivityLines : PowerActivityDTO[] = [];
+
+  showSpinner = true;
 
   constructor(private runService : RunService) { }
 
   ngOnInit() {
     this.runService.getOneRun().subscribe((runpower) => {
-      this.lines = runpower;
-      console.log(this.lines);
+      this.powerActivityLines = runpower;
+      this.showSpinner = false;
+      console.log(this.powerActivityLines);
     });
 
   }  

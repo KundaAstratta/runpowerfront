@@ -8,6 +8,7 @@ import { RunsListComponent } from './components/runs-list/runs-list.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import {TableModule} from 'primeng/table';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import {TableModule} from 'primeng/table';
     AppRoutingModule,
     HttpClientModule,
     TableModule,
+    ProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

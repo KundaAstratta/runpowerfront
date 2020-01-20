@@ -1,9 +1,17 @@
 <p>run works!</p>
-<ng-container *ngIf="lines">
-{{lines.length}}
+
+<ng-container *ngIf="showSpinner ;else started">
+      <div class="center-spinner">
+          <p-progressSpinner [style]="{width: '100px', height: '100px'}" strokeWidth="8" fill="#EEEEEE" animationDuration="1s"></p-progressSpinner>
+      </div>
+  </ng-container>
+
+
+<ng-container #started *ngIf="powerActivityLines">
+{{powerActivityLines.length}}
 <br>
 
-<p-table [value]="lines">
+<p-table [value]="powerActivityLines" [scrollable]="true" scrollHeight="400px">
     <ng-template pTemplate="header">
         <tr>
             <th>Power</th>
@@ -13,13 +21,13 @@
             <th>Time</th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-line>
+    <ng-template pTemplate="body" let-powerActivityLine>
         <tr>
-            <td>{{line.power}} </td>
-            <td>{{line.speed}} </td>
-            <td>{{line.hearthrate}} </td>
-            <td>{{line.distance}} </td>
-            <td>{{line.timezone}} </td>
+            <td>{{powerActivityLine.power}} </td>
+            <td>{{powerActivityLine.speed}} </td>
+            <td>{{powerActivityLine.hearthrate}} </td>
+            <td>{{powerActivityLine.distance}} </td>
+            <td>{{powerActivityLine.timezone}} </td>
         </tr>
     </ng-template>
 </p-table>
