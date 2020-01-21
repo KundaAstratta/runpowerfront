@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable, Inject } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PowerActivityDTO } from '../shared-data/power-activity-dto';
 
@@ -9,10 +9,11 @@ import { PowerActivityDTO } from '../shared-data/power-activity-dto';
 })
 export class RunService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+                      @Inject('BACKEND_URL') private baseUrl: string) {}
 
   getOneRun(): Observable<PowerActivityDTO[]> {
-    return this.http.get<PowerActivityDTO[]>('http://localhost:8080/poweractivity');
+    return this.http.get<PowerActivityDTO[]>(`${this.baseUrl}/poweractivity`);
   }
 
 }

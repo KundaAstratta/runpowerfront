@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {TableModule} from 'primeng/table';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
+import {ChartModule} from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -23,8 +24,11 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
     HttpClientModule,
     TableModule,
     ProgressSpinnerModule,
+    ChartModule,
   ],
-  providers: [],
+  providers: [
+    { provide: 'BACKEND_URL', useValue: 'http://localhost:8080'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
