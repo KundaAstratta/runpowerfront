@@ -22,12 +22,7 @@ export class RunComponent implements OnInit {
   plotPowerVersusDistance: any;
   optionsPowerVersusDistance: any;
 
-  //dataPowerSpeed: any[] = [{x: 10 , y: 140}, {x: 12, y: 130}, {x: 5, y: 140}];
-  site  = {
-    x: [],
-    y: []
-  };
-
+  dataPowerSpeed: any[] = [];
 
   axisXSpeed: number[] = [];
   plotPowerVersusSpeed: any;
@@ -52,8 +47,7 @@ export class RunComponent implements OnInit {
          this.axisYPower.push(this.powerActivityLines[this.index].power);
          this.axisXSpeed.push(this.powerActivityLines[this.index].speed);
 
-         this.site.x.push(this.powerActivityLines[this.index].speed);
-         this.site.y.push(this.powerActivityLines[this.index].power);
+         this.dataPowerSpeed.push({x:this.powerActivityLines[this.index].speed,y:this.powerActivityLines[this.index].power,r:5});
 
          this.index = this.index + 1;
        }
@@ -72,11 +66,19 @@ export class RunComponent implements OnInit {
           title: {
             display: true,
             text: 'Power versus Time',
-            fontSize: 16
+            fontSize: 18
           },
           legend: {
+            display: false,
             position: 'bottom'
-          }
+          },
+          scales: {
+            xAxes: [{
+                ticks: {
+                    display: false
+                }
+            }]
+           }
       };
 
       this.plotPowerVersusDistance = {
@@ -93,24 +95,26 @@ export class RunComponent implements OnInit {
           title: {
             display: true,
             text: 'Power versus Distance',
-            fontSize: 16
+            fontSize: 18
           },
           legend: {
+            display: false,
             position: 'bottom'
-        }
+        },
+        scales: {
+          xAxes: [{
+              ticks: {
+                  display: false
+              }
+          }]
+         }
       };
-
-
-
-    //  for (var i = 0; i < this.powerActivityLines.length; i++) {
 
       this.plotPowerVersusSpeed = {
           datasets: [{
-            data: [{
-              x: this.site.x[1],
-              y: this.site.y[1],
-          }],
-            backgroundColor: "#FF9966"
+            label: ['Power','Speed'],
+            data: this.dataPowerSpeed,
+            backgroundColor: 'rgb(255, 185, 79)'
           }]
       };
       this.optionsPowerVersusSpeed = {
@@ -118,33 +122,36 @@ export class RunComponent implements OnInit {
           yAxes: [{
                   scaleLabel: {
                       display: true,
-                      labelString: 'Power'
+                      labelString: 'Power',
+                      fontSize: 20
                   },
                   ticks: {
-                      beginAtZero: true,
-                      max: 200}
+                      stepSize: 20
+                  }
               }],
           xAxes: [{
                   scaleLabel: {
                       display: true,
-                      labelString: 'Speed'
+                      labelString: 'Speed',
+                      fontSize: 20
                   },
                   ticks: {
-                      beginAtZero: true,
-                      max: 20}
+                      stepSize: 2
+                  } 
               }]
         },
         title: {
           display: true,
           text: 'Power versus Speed',
-          fontSize: 16
+          fontSize: 18
         },
         legend: {
+          display: false,
           position: 'bottom'
       }
       };
 
-  //  }
+ 
     });
 
   }
