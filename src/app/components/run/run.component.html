@@ -4,12 +4,14 @@
       <div class="center-spinner">
           <p-progressSpinner [style]="{width: '100px', height: '100px'}" strokeWidth="8" fill="#EEEEEE" animationDuration="1s"></p-progressSpinner>
       </div>
-  </ng-container>
+</ng-container>
 
 
 <ng-container #started *ngIf="powerActivityLines">
 {{powerActivityLines.length}}
 <br>
+
+<div class="position-container ombres" >
 
 <p-table [value]="powerActivityLines" [scrollable]="true" scrollHeight="400px">
     <ng-template pTemplate="header">
@@ -32,6 +34,24 @@
     </ng-template>
 </p-table>
 
-<p-chart type="line" [data]="plotPowerVersusTime"  ></p-chart>
+</div>
+
+<br><br>
+
+<div class="position-container ombres">
+    <p-chart type="line" [data]="plotPowerVersusTime" [options]="optionsPowerVersusTime"></p-chart>
+</div>
+
+<br><br>
+
+<div class="position-container ombres">
+    <p-chart type="line" [data]="plotPowerVersusDistance" [options]="optionsPowerVersusDistance"></p-chart>
+</div>
+
+<br><br>
+
+<div class="position-container ombres">
+    <p-chart type="bubble" [data]="plotPowerVersusSpeed" [options]="optionsPowerVersusSpeed"></p-chart>
+</div>
 
 </ng-container>
