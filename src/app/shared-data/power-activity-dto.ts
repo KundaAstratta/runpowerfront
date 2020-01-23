@@ -4,6 +4,7 @@ export interface PowerActivityOption {
     speed: number;
     hearthrate: number;
     distance: number;
+    pace: number;
     timezone: number;
 }
 
@@ -14,6 +15,7 @@ export class PowerActivityDTO {
     speed: number;
     hearthrate: number;
     distance: number;
+    pace: number;
     timezone: number;
 
     constructor(options: PowerActivityOption) {
@@ -22,6 +24,7 @@ export class PowerActivityDTO {
         this.speed = options.speed;
         this.hearthrate = options.hearthrate;
         this.distance = options.distance;
+        this.pace = options.pace;
         this.timezone = options.timezone;
     }
 }

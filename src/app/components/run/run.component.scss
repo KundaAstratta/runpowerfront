@@ -7,17 +7,14 @@ td {
     text-align: center;
 }
 
-.position-container {
-    margin: 0 auto;
-    width: 70%;
-    border:1px solid #000;
-}
-
 p-table tr th {
     background-color:rgb(255, 185, 79)
 }
 
-.ombres {
-    box-shadow: inset 0 0 1em gold, 0 0 2em red;
-    /* deux ombres dans la liste et des rayons de flou pour chacune */
-  }
+.border-container {
+    border:1px solid #000;
+}
+
+.ombres-container {
+    box-shadow: inset 0 0 1em grey, 0 0 2em black;
+}
