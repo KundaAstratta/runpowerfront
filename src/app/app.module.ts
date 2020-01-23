@@ -12,6 +12,7 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 import {ChartModule} from 'primeng/chart';
 
+
 @NgModule({
   declarations: [
     AppComponent,
