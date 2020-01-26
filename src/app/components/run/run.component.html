@@ -29,7 +29,7 @@
         <tr>
             <th>Power (W)</th>
             <th>Speed (m/s)</th>
-            <th>Pace (/km)</th>
+            <th>Pace (min/km)</th>
             <th>Hearthrate (bpm)</th>
             <th>Distance (m)</th>
             <th>Time (s)</th>
@@ -52,13 +52,13 @@
 <br><br>
 
 <div class="border-container ombres-container" >
-    <p-chart type="line" [data]="plotPowerVersusTime" [options]="optionsPowerVersusTime"></p-chart>
+    <p-chart type="bubble" [data]="plotPowerVersusTime" [options]="optionsPowerVersusTime"></p-chart>
 </div>
 
 <br><br>
 
 <div class="border-container ombres-container">
-    <p-chart type="line" [data]="plotPowerVersusDistance" [options]="optionsPowerVersusDistance"></p-chart>
+    <p-chart type="bubble" [data]="plotPowerVersusDistance" [options]="optionsPowerVersusDistance"></p-chart>
 </div>
 
 <br><br>
