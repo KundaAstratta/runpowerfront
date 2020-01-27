@@ -13,14 +13,10 @@ export class RunComponent implements OnInit {
 
   showSpinner = true;
 
-  axisYPower: number[] = [];
-
-  axisXTime: number[] = [];
   plotPowerVersusTime: any;
   optionsPowerVersusTime: any;
   dataPowerTime: any[] = [];
 
-  axisXDistance: number[] = [];
   plotPowerVersusDistance: any;
   optionsPowerVersusDistance: any;
   dataPowerDistance: any[] = [];
@@ -53,10 +49,6 @@ export class RunComponent implements OnInit {
       this.index = 0;
 
       while (this.index < this.powerActivityLines.length) {
-        this.axisXTime.push(this.powerActivityLines[this.index].timezone);
-        this.axisXDistance.push(this.powerActivityLines[this.index].distance);
-        this.axisYPower.push(this.powerActivityLines[this.index].power);
-       //  this.axisXSpeed.push(this.powerActivityLines[this.index].speed);
 
         this.dataPowerSpeed.push({x: this.powerActivityLines[this.index].speed,
                                   y: this.powerActivityLines[this.index].power, r: 5});
@@ -122,7 +114,7 @@ export class RunComponent implements OnInit {
       title: {
         display: true,
         text: 'Power versus HR',
-        fontSize: 18
+        fontSize: 20
       },
       legend: {
         display: false
@@ -164,7 +156,7 @@ export class RunComponent implements OnInit {
       title: {
         display: true,
         text: 'Power versus Pace',
-        fontSize: 18
+        fontSize: 20
       },
       legend: {
         display: false
@@ -206,44 +198,13 @@ export class RunComponent implements OnInit {
       title: {
         display: true,
         text: 'Power versus Speed',
-        fontSize: 18
+        fontSize: 20
       },
       legend: {
         display: false
       }
     };
   }
-/*
-  private showChartPowerVerusDistance() {
-    this.plotPowerVersusDistance = {
-      labels: this.axisXDistance,
-      datasets: [{
-        label: 'Power',
-        data: this.axisYPower,
-        borderColor: this.colorOfPowerPoint,
-        fill: false
-      }
-      ]
-    };
-    this.optionsPowerVersusDistance = {
-      title: {
-        display: true,
-        text: 'Power versus Distance',
-        fontSize: 18
-      },
-      legend: {
-        display: false
-      },
-      scales: {
-        xAxes: [{
-          ticks: {
-            display: true
-          }
-        }]
-      }
-    };
-  }
-*/
 
 private showChartPowerVersusDistance() {
   this.plotPowerVersusDistance = {
@@ -279,49 +240,13 @@ private showChartPowerVersusDistance() {
     title: {
       display: true,
       text: 'Power versus Distance',
-      fontSize: 18
+      fontSize: 20
     },
     legend: {
       display: false
     }
   };
 }
-/*
-  private showChartPowerVersusTime() {
-    this.plotPowerVersusTime = {
-      labels: this.axisXTime,
-      datasets: [{
-        label: 'Power',
-        data: this.axisYPower,
-        borderColor: this.colorOfPowerPoint,
-        fill: false
-      }
-      ]
-    };
-    this.optionsPowerVersusTime = {
-      title: {
-        display: true,
-        text: 'Power versus Time',
-        fontSize: 18
-      },
-      legend: {
-        display: false
-      },
-      scales: {
-        xAxes: [{
-          ticks: {
-            display: false
-          },
-          scaleLabel: {
-            display: true,
-            labelString: 'Time',
-            fontSize: 18
-          }
-        }]
-       }
-    };
-  }
-  */
 
  private showChartPowerVersusTime() {
   this.plotPowerVersusTime = {
@@ -357,7 +282,7 @@ private showChartPowerVersusDistance() {
     title: {
       display: true,
       text: 'Power versus Time',
-      fontSize: 18
+      fontSize: 20
     },
     legend: {
       display: false
