@@ -16,4 +16,8 @@ export class RunService {
     return this.http.get<PowerActivityDTO[]>(`${this.baseUrl}/poweractivity`);
   }
 
+  transformXMLtoActivity() {
+    this.http.get(`${this.baseUrl}/fromXMLtoActivity`).subscribe();
+  }
+
 }

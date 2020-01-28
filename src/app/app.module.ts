@@ -12,6 +12,9 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 import {ChartModule} from 'primeng/chart';
 
+import {ButtonModule} from 'primeng/button';
+
+
 
 @NgModule({
   declarations: [
@@ -26,6 +29,7 @@ import {ChartModule} from 'primeng/chart';
     TableModule,
     ProgressSpinnerModule,
     ChartModule,
+    ButtonModule,
   ],
   providers: [
     { provide: 'BACKEND_URL', useValue: 'http://localhost:8080'}

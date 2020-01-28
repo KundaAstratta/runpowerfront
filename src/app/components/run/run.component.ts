@@ -290,5 +290,11 @@ private showChartPowerVersusDistance() {
   };
 }
 
+onClick() {
+  console.log("ici");
+  this.runService.transformXMLtoActivity();
+}
+
+
 
 }
