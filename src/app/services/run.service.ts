@@ -20,4 +20,9 @@ export class RunService {
     this.http.get(`${this.baseUrl}/fromXMLtoActivity`).subscribe();
   }
 
+  transformActivityToPowerActivity() {
+    this.http.get(`${this.baseUrl}/fromActivityToPowerActivity`).subscribe();
+  }
+
+
 }

@@ -40,44 +40,42 @@ export class RunComponent implements OnInit {
   constructor(private runService: RunService) { }
 
   ngOnInit() {
+
     this.runService.getOneRun().subscribe((runpower) => {
-      this.powerActivityLines = runpower;
-      this.showSpinner = false;
-
-      console.log(this.powerActivityLines);
-
-      this.index = 0;
-
-      while (this.index < this.powerActivityLines.length) {
-
-        this.dataPowerSpeed.push({x: this.powerActivityLines[this.index].speed,
-                                  y: this.powerActivityLines[this.index].power, r: 5});
-        this.dataPowerPace.push({x: this.powerActivityLines[this.index].pace,
-                                  y: this.powerActivityLines[this.index].power, r: 5});
-        this.dataPowerHearthrate.push({x: this.powerActivityLines[this.index].hearthrate,
-                                       y: this.powerActivityLines[this.index].power, r: 5});
-        this.dataPowerDistance.push({x: this.powerActivityLines[this.index].distance,
-                                     y: this.powerActivityLines[this.index].power, r: 2});
-        this.dataPowerTime.push({x: this.powerActivityLines[this.index].timezone,
-                                      y: this.powerActivityLines[this.index].power, r: 2});
-                                   
-                                  
-        this.index = this.index + 1;
-      }
-
-      this.showChartPowerVersusTime();
-
-      this.showChartPowerVersusDistance();
-
-      this.showChartPowerVersusSpeed();
-
-      this.showChartPowerVersusPace();
-
-      this.showChartPowerVersusHearthrate();
-
-
-    });
-
+        this.powerActivityLines = runpower;
+        this.showSpinner = false;
+        console.log(this.powerActivityLines);
+        this.index = 0;
+        while (this.index < this.powerActivityLines.length) {
+          this.dataPowerSpeed.push({
+          x: this.powerActivityLines[this.index].speed,
+            y: this.powerActivityLines[this.index].power, r: 5
+          });
+          this.dataPowerPace.push({
+          x: this.powerActivityLines[this.index].pace,
+            y: this.powerActivityLines[this.index].power, r: 5
+          });
+          this.dataPowerHearthrate.push({
+          x: this.powerActivityLines[this.index].hearthrate,
+            y: this.powerActivityLines[this.index].power, r: 5
+          });
+          this.dataPowerDistance.push({
+          x: this.powerActivityLines[this.index].distance,
+            y: this.powerActivityLines[this.index].power, r: 2
+          });
+          this.dataPowerTime.push({
+          x: this.powerActivityLines[this.index].timezone,
+            y: this.powerActivityLines[this.index].power, r: 2
+          });
+          this.index = this.index + 1;
+        }
+        this.showChartPowerVersusTime();
+        this.showChartPowerVersusDistance();
+        this.showChartPowerVersusSpeed();
+        this.showChartPowerVersusPace();
+        this.showChartPowerVersusHearthrate();
+      });
+    
   }
 
   private showChartPowerVersusHearthrate() {
@@ -290,11 +288,17 @@ private showChartPowerVersusDistance() {
   };
 }
 
-onClick() {
-  console.log("ici");
+onTransformXMLtoActivity() {
+  console.log("XML transformation");
   this.runService.transformXMLtoActivity();
+  console.log("fini");
 }
 
+onTransformActivityToPowerActivity() {
+  console.log("PowerActivity transformation");
+  this.runService.transformActivityToPowerActivity();
+  console.log("fini");
+}
 
 
 }
