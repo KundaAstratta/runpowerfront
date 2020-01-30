@@ -13,6 +13,7 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {ChartModule} from 'primeng/chart';
 
 import {ButtonModule} from 'primeng/button';
+import { ActivityComponent } from './components/activity/activity.component';
 
 
 
@@ -21,6 +22,7 @@ import {ButtonModule} from 'primeng/button';
     AppComponent,
     RunComponent,
     RunsListComponent,
+    ActivityComponent,
   ],
   imports: [
     BrowserModule,
