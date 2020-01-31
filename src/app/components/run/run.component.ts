@@ -75,7 +75,7 @@ export class RunComponent implements OnInit {
         this.showChartPowerVersusPace();
         this.showChartPowerVersusHearthrate();
       });
-    
+
   }
 
   private showChartPowerVersusHearthrate() {
@@ -287,18 +287,5 @@ private showChartPowerVersusDistance() {
     }
   };
 }
-
-onTransformXMLtoActivity() {
-  console.log("XML transformation");
-  this.runService.transformXMLtoActivity();
-  console.log("fini");
-}
-
-onTransformActivityToPowerActivity() {
-  console.log("PowerActivity transformation");
-  this.runService.transformActivityToPowerActivity();
-  console.log("fini");
-}
-
 
 }

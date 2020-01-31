@@ -13,13 +13,12 @@ export class ActivityComponent implements OnInit {
   ngOnInit() {
   }
 
-
   onTransformXMLtoActivity() {
     console.log("XML transformation");
     this.activityService.transformXMLtoActivity();
     console.log("fini");
   }
-  
+
   onTransformActivityToPowerActivity() {
     console.log("PowerActivity transformation");
     this.activityService.transformActivityToPowerActivity();
