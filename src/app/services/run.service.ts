@@ -13,7 +13,7 @@ export class RunService {
                       @Inject('BACKEND_URL') private baseUrl: string) {}
 
   getOneRun(): Observable<PowerActivityDTO[]> {
-    return this.http.get<PowerActivityDTO[]>(`${this.baseUrl}/poweractivity`);
+    return this.http.get<PowerActivityDTO[]>(`${this.baseUrl}/poweractivity/athlete/1/activity/1`);
   }
 
 }

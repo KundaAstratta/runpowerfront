@@ -7,22 +7,46 @@ import { ActivityService } from 'src/app/services/activity.service';
   styleUrls: ['./activity.component.scss']
 })
 export class ActivityComponent implements OnInit {
+  
+  XMLtoActivity : boolean;
 
   constructor(private activityService: ActivityService) { }
 
   ngOnInit() {
   }
 
-  onTransformXMLtoActivity() {
+
+  onTransformXMLtoActivity():any {
     console.log("XML transformation");
-    this.activityService.transformXMLtoActivity();
-    console.log("fini");
+  //  this.XMLtoActivity = false;
+    this.activityService.transformXMLtoActivity().subscribe({
+      next() {this.XMLtoActivity=false;},
+      complete(){
+        console.log('fini');
+        this.XMLtoActivity = true;
+        console.log(this.XMLtoActivity);
+       // this.toShow();
+        //this.onTransformActivityToPowerActivity();
+        //this.activityService.transformActivityToPowerActivity();
+      }
+     
+    });
+   
   }
 
-  onTransformActivityToPowerActivity() {
+  onTransformActivityToPowerActivity():any {
     console.log("PowerActivity transformation");
-    this.activityService.transformActivityToPowerActivity();
-    console.log("fini");
-  }
+    this.activityService.transformActivityToPowerActivity().subscribe({
+       complete(){
+        console.log('fini');
+ //       this.XMLtoActivity = true;
+ //       console.log(this.XMLtoActivity);
+        //this.onTransformActivityToPowerActivity();
+       // this.activityService.transformActivityToPowerActivity();
+      }
+     
+    });
 
+  }
+  
 }

@@ -1,5 +1,7 @@
 export interface PowerActivityOption {
     id?: number;
+    idathlete: number,
+    idpoweractivity: number,
     power: number;
     speed: number;
     hearthrate: number;
@@ -11,6 +13,8 @@ export interface PowerActivityOption {
 export class PowerActivityDTO {
 
     id: number;
+    idathlete: number;
+    idpoweractivity: number;
     power: number;
     speed: number;
     hearthrate: number;
@@ -18,8 +22,11 @@ export class PowerActivityDTO {
     pace: number;
     timezone: number;
 
+
     constructor(options: PowerActivityOption) {
         this.id  = options.id  || 0;
+        this.idathlete = options.idathlete;
+        this.idpoweractivity = options.idpoweractivity;
         this.power = options.power;
         this.speed = options.speed;
         this.hearthrate = options.hearthrate;

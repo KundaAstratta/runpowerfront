@@ -11,11 +11,11 @@ export class ActivityService {
 
 
 transformXMLtoActivity() {
-  this.http.get(`${this.baseUrl}/fromXMLtoActivity`).subscribe();
+  return this.http.get(`${this.baseUrl}/fromXMLtoActivity`);
 }
 
 transformActivityToPowerActivity() {
-  this.http.get(`${this.baseUrl}/fromActivityToPowerActivity`).subscribe();
+  return this.http.get(`${this.baseUrl}/fromActivityToPowerActivity`);
 }
 
 }
