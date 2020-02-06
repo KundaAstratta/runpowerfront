@@ -15,7 +15,7 @@ import {ChartModule} from 'primeng/chart';
 import {ButtonModule} from 'primeng/button';
 import { ActivityComponent } from './components/activity/activity.component';
 
-
+import {CardModule} from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -32,6 +32,7 @@ import { ActivityComponent } from './components/activity/activity.component';
     ProgressSpinnerModule,
     ChartModule,
     ButtonModule,
+    CardModule,
   ],
   providers: [
     { provide: 'BACKEND_URL', useValue: 'http://localhost:8080'}

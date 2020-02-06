@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RunService } from 'src/app/services/run.service';
 import { PowerActivityDTO } from 'src/app/shared-data/power-activity-dto';
+import { StatisticsPowerActivityDTO } from 'src/app/shared-data/statistics-power-activity';
 
 @Component({
   selector: 'app-run',
@@ -10,6 +11,7 @@ import { PowerActivityDTO } from 'src/app/shared-data/power-activity-dto';
 export class RunComponent implements OnInit {
 
   powerActivityLines: PowerActivityDTO[] = [];
+  statisticsPowerActivity: StatisticsPowerActivityDTO = null;
 
   showSpinner = true;
 
@@ -40,6 +42,13 @@ export class RunComponent implements OnInit {
   constructor(private runService: RunService) { }
 
   ngOnInit() {
+
+    this.runService.getOneStatistics().subscribe(
+      (statisticspower) => {
+        this.statisticsPowerActivity = statisticspower;
+        console.log(this.statisticsPowerActivity);
+      }
+    );
 
     this.runService.getOneRun().subscribe((runpower) => {
         this.powerActivityLines = runpower;
