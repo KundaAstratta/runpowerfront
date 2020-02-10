@@ -13,6 +13,7 @@ export class ActivityComponent implements OnInit {
   constructor(private activityService: ActivityService) { }
 
   ngOnInit() {
+  //  this.onTransformXMLtoActivity();
   }
 
 
@@ -22,12 +23,13 @@ export class ActivityComponent implements OnInit {
     this.activityService.transformXMLtoActivity().subscribe({
       next() {this.XMLtoActivity=false;},
       complete(){
-        console.log('fini');
+        console.log('ended');
         this.XMLtoActivity = true;
         console.log(this.XMLtoActivity);
        // this.toShow();
-        //this.onTransformActivityToPowerActivity();
-        //this.activityService.transformActivityToPowerActivity();
+       // this.onTransformActivityToPowerActivity();
+       //this.activityService.transformActivityToPowerActivity();
+
       }
      
     });
@@ -38,7 +40,7 @@ export class ActivityComponent implements OnInit {
     console.log("PowerActivity transformation");
     this.activityService.transformActivityToPowerActivity().subscribe({
        complete(){
-        console.log('fini');
+        console.log('ended');
  //       this.XMLtoActivity = true;
  //       console.log(this.XMLtoActivity);
         //this.onTransformActivityToPowerActivity();
@@ -47,6 +49,15 @@ export class ActivityComponent implements OnInit {
      
     });
 
+  }
+
+  onTransformPowerActivityToStatistics():any {
+    console.log('Statistics transformation');
+    this.activityService.transformPowerActivityToStatistics().subscribe({
+        complete(){
+          console.log('ended');
+        }
+    });
   }
   
 }

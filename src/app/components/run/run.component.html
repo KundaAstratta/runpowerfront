@@ -21,7 +21,7 @@
 
 <div class="p-col-8">
 
-    <div class="p-grid">
+    <div class="p-grid" #started *ngIf="statisticsPowerActivity">
         <div class="p-col">
             <p-card header="Power Average" [style]="{width: '200px'}">
                 <div> <h2>{{statisticsPowerActivity.poweraverage}}</h2></div>
@@ -35,6 +35,11 @@
         <div class="p-col">
             <p-card header="Deviation" [style]="{width: '200px'}">
                 <div> <h2>{{statisticsPowerActivity.deviation}}</h2></div>
+            </p-card>
+        </div>
+        <div class="p-col">
+            <p-card header="Power Score" [style]="{width: '200px'}">
+                <div> <h2>{{statisticsPowerActivity.powerscore}}</h2></div>
             </p-card>
         </div>
     </div>

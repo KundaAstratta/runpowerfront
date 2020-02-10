@@ -10,12 +10,16 @@ export class ActivityService {
     @Inject('BACKEND_URL') private baseUrl: string) {}
 
 
-transformXMLtoActivity() {
-  return this.http.get(`${this.baseUrl}/fromXMLtoActivity`);
-}
+  transformXMLtoActivity() {
+     return this.http.get(`${this.baseUrl}/fromXMLtoActivity`);   
+  }
 
-transformActivityToPowerActivity() {
-  return this.http.get(`${this.baseUrl}/fromActivityToPowerActivity`);
-}
+  transformActivityToPowerActivity() {
+    return this.http.get(`${this.baseUrl}/fromActivityToPowerActivity`);
+  }
+
+  transformPowerActivityToStatistics() {
+    return this.http.get(`${this.baseUrl}/fromPowerActivityToStatistics`);
+  }
 
 }
