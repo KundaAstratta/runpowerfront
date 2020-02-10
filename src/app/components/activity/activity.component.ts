@@ -13,42 +13,28 @@ export class ActivityComponent implements OnInit {
   constructor(private activityService: ActivityService) { }
 
   ngOnInit() {
-  //  this.onTransformXMLtoActivity();
   }
-
 
   onTransformXMLtoActivity():any {
     console.log("XML transformation");
-  //  this.XMLtoActivity = false;
     this.activityService.transformXMLtoActivity().subscribe({
       next() {this.XMLtoActivity=false;},
       complete(){
         console.log('ended');
         this.XMLtoActivity = true;
         console.log(this.XMLtoActivity);
-       // this.toShow();
-       // this.onTransformActivityToPowerActivity();
-       //this.activityService.transformActivityToPowerActivity();
-
-      }
-     
-    });
-   
+      }    
+    });  
   }
+
 
   onTransformActivityToPowerActivity():any {
     console.log("PowerActivity transformation");
     this.activityService.transformActivityToPowerActivity().subscribe({
        complete(){
         console.log('ended');
- //       this.XMLtoActivity = true;
- //       console.log(this.XMLtoActivity);
-        //this.onTransformActivityToPowerActivity();
-       // this.activityService.transformActivityToPowerActivity();
-      }
-     
+      } 
     });
-
   }
 
   onTransformPowerActivityToStatistics():any {
