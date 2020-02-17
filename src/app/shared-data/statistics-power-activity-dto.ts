@@ -1,7 +1,7 @@
 export interface StatisticsPowerActivityOption {
     id?: number;
-    idathlete: number,
-    idpoweractivity: number,
+    idathlete: number;
+    idpoweractivity: number;
     poweraverage: number;
     powermedian: number;
     deviation: number;
@@ -28,4 +28,5 @@ export class StatisticsPowerActivityDTO {
         this.deviation = options.deviation;
         this.powerscore = options.powerscore;
     }
+    
 }

@@ -1,4 +1,4 @@
-<p>run works!</p>
+<p>power run works!</p>
 
 <ng-container *ngIf="showSpinner ;else started">
       <div class="center-spinner">
@@ -15,6 +15,15 @@
 <div class="p-grid">
     
 <div class="p-col-2">
+    <p-card header="Athlete" [style]="{width: '200px'}" #started *ngIf="athlete">
+    <b>{{athlete.name}}</b>
+    <br>
+    <b>{{athlete.surname}}</b>
+    <br>
+    <b>{{athlete.mass}}</b> kg - HRmax : <b>{{athlete.hearthmax}}</b> bpm
+    <br>
+    </p-card>
+    <br>
     Number of Activity Power Points : <b>{{powerActivityLines.length}}</b>
 </div>
 

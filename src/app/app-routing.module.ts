@@ -7,7 +7,7 @@ import { RunsListComponent } from './components/runs-list/runs-list.component';
 
 const routes: Routes = [
   { path: 'poweractivity', component: RunComponent},
-  { path: 'poweractivity/list', component: RunsListComponent},
+  { path: 'poweractivitylist', component: RunsListComponent},
   { path: 'activity', component: ActivityComponent},
 ];
 
