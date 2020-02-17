@@ -15,11 +15,11 @@ export class ActivityService {
   }
 
   transformActivityToPowerActivity() {
-    return this.http.get(`${this.baseUrl}/fromActivityToPowerActivity`);
+    return this.http.get(`${this.baseUrl}/fromActivityToPowerActivity/athlete/1/activity/1`);
   }
 
   transformPowerActivityToStatistics() {
-    return this.http.get(`${this.baseUrl}/fromPowerActivityToStatistics`);
+    return this.http.get(`${this.baseUrl}/fromPowerActivityToStatistics/athlete/1/activity/1`);
   }
 
 }
