@@ -14,7 +14,7 @@ export class AthleteDTO {
     name: string;
     surnname: string;
     mass: number;
-    hearthmax: number;
+    hearthmax: number;  
 
     constructor(options: AthleteOption) {
         this.id = options.id || 0;

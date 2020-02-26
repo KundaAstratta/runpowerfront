@@ -1,10 +1,32 @@
 <p>activity works!</p>
 
-<div>
-    <p-button label="Transform XML"  (onClick)="onTransformXMLtoActivity()"></p-button>
-    <br><br>
-    <p-button label="Power Activity"  (onClick)="onTransformActivityToPowerActivity()"></p-button>
-    <br><br>
-    <p-button label="Statistics"  (onClick)="onTransformPowerActivityToStatistics()"></p-button>
+<div class="p-grid">
+
+    <div class="p-col-2">
+    
+        <p-button label="Athlete" (onClick)="createOneAthlete()"  ></p-button>
+        <br><br>
+        <p-button label="External Condition"  (onClick)="createOneExternalCondition()"></p-button>
+        <br><br>
+        <p-button label="Transform XML"  (onClick)="onTransformXMLtoActivity()"></p-button>
+        <br><br>
+        <p-button label="Power Activity"  (onClick)="onTransformActivityToPowerActivity()"></p-button>
+        <br><br>
+        <p-button label="Statistics"  (onClick)="onTransformPowerActivityToStatistics()"></p-button>
+    
+    </div>
+
+    <div class="p-col-8">
+        <h3>AthleteDTO.name</h3>
+        
+        <span class="ui-float-label">
+            <input id="float-input" type="text" size="30" pInputText> 
+            <label for="float-input"></label>
+        </span>    
+    
+    </div>    
+
+    <div class="p-col-2"></div>
 
 </div>
+
