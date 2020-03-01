@@ -17,6 +17,8 @@ import { ActivityComponent } from './components/activity/activity.component';
 
 import {CardModule} from 'primeng/card';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +35,7 @@ import {CardModule} from 'primeng/card';
     ChartModule,
     ButtonModule,
     CardModule,
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: 'BACKEND_URL', useValue: 'http://localhost:8080'}

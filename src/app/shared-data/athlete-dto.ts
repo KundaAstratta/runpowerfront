@@ -12,7 +12,7 @@ export class AthleteDTO {
     id: number;
     idathlete: number;
     name: string;
-    surnname: string;
+    surname: string;
     mass: number;
     hearthmax: number;  
 
@@ -20,7 +20,7 @@ export class AthleteDTO {
         this.id = options.id || 0;
         this.idathlete = options.idathlete;
         this.name = options.name;
-        this.surnname = options.surname;
+        this.surname = options.surname;
         this.hearthmax = options.heathmax;
     }
 }

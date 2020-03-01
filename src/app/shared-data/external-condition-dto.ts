@@ -12,7 +12,7 @@ export class ExternalConditionDTO {
 
     id: number;
     idathlete: number;
-    idopoweractivity: number;
+    idpoweractivity: number;
     pressureatm: number;
     temperature: number;
     humidity: number;
@@ -21,7 +21,7 @@ export class ExternalConditionDTO {
     constructor(options: ExternalConditionOption) {
         this.id = options.id || 0;
         this.idathlete = options.idathlete;
-        this.idopoweractivity = options.idpoweractivity;
+        this.idpoweractivity = options.idpoweractivity;
         this.temperature = options.temperature;
         this.humidity = options.humidity;
         this.speedwind = options.speedwind;    
