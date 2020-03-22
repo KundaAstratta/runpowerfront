@@ -6,6 +6,7 @@ export interface StatisticsPowerActivityOption {
     powermedian: number;
     deviation: number;
     powerscore: number;
+    date: string;
 }
 
 export class StatisticsPowerActivityDTO {
@@ -17,7 +18,7 @@ export class StatisticsPowerActivityDTO {
     powermedian: number;
     deviation: number;
     powerscore: number;
-
+    date: string;
 
     constructor(options: StatisticsPowerActivityOption) {
         this.id  = options.id  || 0;
@@ -27,6 +28,7 @@ export class StatisticsPowerActivityDTO {
         this.powermedian = options.powermedian;
         this.deviation = options.deviation;
         this.powerscore = options.powerscore;
+        this.date = options.date;
     }
     
 }

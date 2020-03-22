@@ -18,12 +18,12 @@ export class RunService {
     return this.http.get<AthleteDTO>(`${this.baseUrl}/athlete/1`);
   }
 
-  getOneRun(): Observable<PowerActivityDTO[]> {
-    return this.http.get<PowerActivityDTO[]>(`${this.baseUrl}/poweractivity/athlete/1/activity/1`);
+  getOneRun(activityid: number): Observable<PowerActivityDTO[]> {
+    return this.http.get<PowerActivityDTO[]>(`${this.baseUrl}/poweractivity/athlete/1/activity/${activityid}`);
   }
 
-  getOneStatistics(): Observable<StatisticsPowerActivityDTO> {
-    return this.http.get<StatisticsPowerActivityDTO>(`${this.baseUrl}/statisticsactivity/athlete/1/activity/1`);
+  getOneStatistics(activityid): Observable<StatisticsPowerActivityDTO> {
+    return this.http.get<StatisticsPowerActivityDTO>(`${this.baseUrl}/statisticsactivity/athlete/1/activity/${activityid}`);
   } 
 
 }

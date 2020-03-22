@@ -3,6 +3,7 @@ import { RunService } from 'src/app/services/run.service';
 import { PowerActivityDTO } from 'src/app/shared-data/power-activity-dto';
 import { StatisticsPowerActivityDTO } from 'src/app/shared-data/statistics-power-activity-dto';
 import { AthleteDTO } from 'src/app/shared-data/athlete-dto';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-run',
@@ -41,10 +42,13 @@ export class RunComponent implements OnInit {
 
   index: number;
 
-  constructor(private runService: RunService) { }
+  activityid: number;
+
+  constructor(private runService: RunService,
+              private activeRoute:  ActivatedRoute) { }
 
   ngOnInit() {
-
+    this.activityid = Number(this.activeRoute.snapshot.paramMap.get('activityid'))
     this.runService.getOneAthlete().subscribe(
       (athletepower) => {
         this.athlete = athletepower;
@@ -52,14 +56,14 @@ export class RunComponent implements OnInit {
       }
     );
 
-    this.runService.getOneStatistics().subscribe(
+    this.runService.getOneStatistics(this.activityid).subscribe(
       (statisticspower) => {
         this.statisticsPowerActivity = statisticspower;
         console.log(this.statisticsPowerActivity);
       }
     );
 
-    this.runService.getOneRun().subscribe((runpower) => {
+    this.runService.getOneRun(this.activityid).subscribe((runpower) => {
         this.powerActivityLines = runpower;
         this.showSpinner = false;
         console.log(this.powerActivityLines);

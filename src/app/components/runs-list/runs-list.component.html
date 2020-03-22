@@ -1,1 +1,91 @@
 <p>runs-list works!</p>
+
+
+<ng-container *ngIf="statisticsPowerActivity">
+
+<div class="p-grid">
+
+
+
+<div class="p-col-2">
+    <h2>Statistics Power Activity : {{statisticsPowerActivity.length}}</h2>
+    <p-card header="Athlete" [style]="{width: '200px'}" #started *ngIf="athlete">
+        <b>{{athlete.name}}</b>
+        <br>
+        <b>{{athlete.surname}}</b>
+        <br>
+        <b>{{athlete.mass}}</b> kg - HRmax : <b>{{athlete.hearthmax}}</b> bpm
+    </p-card>
+</div>
+
+
+
+<div class="p-col-8">
+
+
+<div class="border-container ombres-container" >
+
+<p-table [value]="statisticsPowerActivity" [scrollable]="true" scrollHeight="400px" class="ombres-container">
+
+    <ng-template pTemplate="header">
+        <tr>
+            <th> Statistics Power Activity</th>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-statisticsPowerActivity >
+        <tr [routerLink]="['/poweractivity',statisticsPowerActivity.id]">
+            <td>
+                <div class="p-col">
+                    <p-card [style]="{width: '200px'}">
+                        <div> <h2>{{statisticsPowerActivity.date}}</h2></div>
+                    </p-card>
+                </div>
+            </td>
+            <td>
+                <div class="p-col">
+                    <p-card header="Power Average" [style]="{width: '200px'}">
+                        <div> <h2>{{statisticsPowerActivity.poweraverage}}</h2></div>
+                    </p-card>
+                </div>
+            </td>
+            <td>
+                <div class="p-col">
+                    <p-card header="Power Median" [style]="{width: '200px'}">
+                        <div> <h2>{{statisticsPowerActivity.powermedian}}</h2></div>
+                    </p-card>
+                </div>
+            <td>
+                <div class="p-col">
+                    <p-card header="Deviation" [style]="{width: '200px'}">
+                        <div> <h2>{{statisticsPowerActivity.deviation}}</h2></div>
+                    </p-card>
+                </div>
+            </td>
+            <td>
+                <div class="p-col">
+                    <p-card header="Power Score" [style]="{width: '200px'}">
+                        <div> <h2>{{statisticsPowerActivity.powerscore}}</h2></div>
+                    </p-card>
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+
+</p-table>
+
+</div>
+
+</div>
+
+
+
+<div class="p-col-2">
+3 
+</div>
+
+
+
+</div>
+
+</ng-container>

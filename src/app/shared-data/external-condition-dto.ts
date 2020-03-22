@@ -6,6 +6,7 @@ export interface ExternalConditionOption {
     temperature: number;
     humidity: number;
     speedwind: number;
+
 }
 
 export class ExternalConditionDTO {
