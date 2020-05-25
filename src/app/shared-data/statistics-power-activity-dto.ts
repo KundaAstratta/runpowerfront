@@ -6,6 +6,11 @@ export interface StatisticsPowerActivityOption {
     powermedian: number;
     deviation: number;
     powerscore: number;
+    nbrofeasy: number;
+    nbrofmarathon: number;
+    nbrofthreshold: number;
+    nbrofinterval: number;
+    nbrofrepetition: number;
     date: string;
 }
 
@@ -18,6 +23,11 @@ export class StatisticsPowerActivityDTO {
     powermedian: number;
     deviation: number;
     powerscore: number;
+    nbrofeasy: number;
+    nbrofmarathon: number;
+    nbrofthreshold: number;
+    nbrofinterval: number;
+    nbrofrepetition: number;
     date: string;
 
     constructor(options: StatisticsPowerActivityOption) {
@@ -28,6 +38,11 @@ export class StatisticsPowerActivityDTO {
         this.powermedian = options.powermedian;
         this.deviation = options.deviation;
         this.powerscore = options.powerscore;
+        this.nbrofeasy = options.nbrofeasy;
+        this.nbrofmarathon = options.nbrofmarathon;
+        this.nbrofthreshold = options.nbrofthreshold;
+        this.nbrofinterval = options.nbrofinterval;
+        this.nbrofrepetition = options.nbrofrepetition;
         this.date = options.date;
     }
     

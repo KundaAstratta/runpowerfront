@@ -38,6 +38,9 @@ export class RunComponent implements OnInit {
   optionsPowerVersusHearthrate: any;
   dataPowerHearthrate: any[] = [];
 
+  plotPowerVersusZone: any;
+  optionsPowerVersusZone: any;
+
   colorOfPowerPoint = 'rgb(255, 185, 79)';
 
   index: number;
@@ -96,6 +99,7 @@ export class RunComponent implements OnInit {
         this.showChartPowerVersusSpeed();
         this.showChartPowerVersusPace();
         this.showChartPowerVersusHearthrate();
+        this.showChartPowerVersusZone();
       });
 
   }
@@ -309,5 +313,46 @@ private showChartPowerVersusDistance() {
     }
   };
 }
+
+private showChartPowerVersusZone() {
+  this.plotPowerVersusZone = {
+  labels: ['Easy', 'Marathon', 'Threshold', 'Interval', 'Repetition'],
+  datasets: [
+      {
+          label: 'Power Zone',
+          backgroundColor: this.colorOfPowerPoint,
+          borderColor: this.colorOfPowerPoint,
+          data: [this.statisticsPowerActivity.nbrofeasy, this.statisticsPowerActivity.nbrofmarathon, this.statisticsPowerActivity.nbrofthreshold, this.statisticsPowerActivity.nbrofinterval, this.statisticsPowerActivity.nbrofrepetition]
+      }
+  ]
+  };
+  this.optionsPowerVersusZone = {
+    scales: {
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Power',
+          fontSize: 20
+     }
+      }],
+      xAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Zone',
+          fontSize: 20
+        }
+      }]
+    },
+    title: {
+      display: true,
+      text: 'Power versus Zone',
+      fontSize: 20
+    },
+    legend: {
+      display: false
+    }
+  };
+}
+
 
 }
