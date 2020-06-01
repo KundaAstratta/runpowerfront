@@ -12,6 +12,10 @@ export interface StatisticsPowerActivityOption {
     nbrofinterval: number;
     nbrofrepetition: number;
     date: string;
+    powerfirstquartil: number;
+    deltafirstquartil: number;
+    powerthirdquartil: number;
+    deltathirdquartil: number;
 }
 
 export class StatisticsPowerActivityDTO {
@@ -29,6 +33,10 @@ export class StatisticsPowerActivityDTO {
     nbrofinterval: number;
     nbrofrepetition: number;
     date: string;
+    powerfirstquartil: number;
+    deltafirstquartil: number;
+    powerthirdquartil: number;
+    deltathirdquartil: number;
 
     constructor(options: StatisticsPowerActivityOption) {
         this.id  = options.id  || 0;
@@ -44,6 +52,10 @@ export class StatisticsPowerActivityDTO {
         this.nbrofinterval = options.nbrofinterval;
         this.nbrofrepetition = options.nbrofrepetition;
         this.date = options.date;
+        this.powerfirstquartil = options.powerfirstquartil;
+        this.deltafirstquartil = options.deltafirstquartil;
+        this.powerthirdquartil = options.powerthirdquartil;
+        this.deltathirdquartil = options.deltathirdquartil;
     }
     
 }

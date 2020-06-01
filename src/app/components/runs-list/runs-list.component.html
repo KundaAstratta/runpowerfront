@@ -20,7 +20,7 @@
 
 
 
-<div class="p-col-8">
+<div class="p-col-10">
 
 
 <div class="border-container ombres-container" >
@@ -38,34 +38,41 @@
             <td>
                 <div class="p-col">
                     <p-card [style]="{width: '200px'}">
-                        <div> <h2>{{statisticsPowerActivity.date}}</h2></div>
+                        <div> <h4>{{statisticsPowerActivity.date}}</h4></div>
                     </p-card>
                 </div>
             </td>
             <td>
                 <div class="p-col">
                     <p-card header="Power Average" [style]="{width: '200px'}">
-                        <div> <h2>{{statisticsPowerActivity.poweraverage}}</h2></div>
+                        <div> <h4>{{statisticsPowerActivity.poweraverage}}</h4></div>
                     </p-card>
                 </div>
             </td>
             <td>
                 <div class="p-col">
                     <p-card header="Power Median" [style]="{width: '200px'}">
-                        <div> <h2>{{statisticsPowerActivity.powermedian}}</h2></div>
+                        <div> <h4>{{statisticsPowerActivity.powermedian}}</h4></div>
                     </p-card>
                 </div>
             <td>
                 <div class="p-col">
                     <p-card header="Deviation" [style]="{width: '200px'}">
-                        <div> <h2>{{statisticsPowerActivity.deviation}}</h2></div>
+                        <div> <h4>{{statisticsPowerActivity.deviation}}</h4></div>
                     </p-card>
                 </div>
             </td>
             <td>
                 <div class="p-col">
                     <p-card header="Power Score" [style]="{width: '200px'}">
-                        <div> <h2>{{statisticsPowerActivity.powerscore}}</h2></div>
+                        <div> <h4>{{statisticsPowerActivity.powerscore}}</h4></div>
+                    </p-card>
+                </div>
+            </td>
+            <td>
+                <div class="p-col">
+                    <p-card header="Delta" [style]="{width: '200px'}">
+                        <div> <h4>{{statisticsPowerActivity.deltafirstquartil}} + {{statisticsPowerActivity.deltathirdquartil}}</h4></div>
                     </p-card>
                 </div>
             </td>
@@ -79,11 +86,11 @@
 </div>
 
 
-
+<!--
 <div class="p-col-2">
 3 
 </div>
-
+-->
 
 
 </div>
