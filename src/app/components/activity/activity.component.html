@@ -5,18 +5,19 @@
     <div class="p-col-2">
 
       <p-card header="Activity" [style]="{width: '200px'}"> 
-        <p-button label="Transform XML"  (onClick)="onTransformXMLtoActivity()"></p-button>
+        <p-button label="Transform XML"   styleClass="ui-button-warning" (onClick)="onTransformXMLtoActivity()"></p-button>
         <br><br>
-        <p-button label="Power Activity"  (onClick)="onTransformActivityToPowerActivity()"></p-button>
+        <p-button label="Power Activity"  styleClass="ui-button-warning" (onClick)="onTransformActivityToPowerActivity()"></p-button>
         <br><br>
-        <p-button label="Statistics"  (onClick)="onTransformPowerActivityToStatistics()"></p-button>
+        <p-button label="Statistics" styleClass="ui-button-warning" (onClick)="onTransformPowerActivityToStatistics()"></p-button>
       </p-card>
     </div>
 
-    <div class="p-col-8">
+    <div class="p-col-10">
 
-        <p-card header="Athlete" [style]="{width: '900px'}"> 
-        <form [formGroup]="AthleteForm" (ngSubmit)="onSubmit()">
+        
+        <p-card header="Athlete" > 
+        <form [formGroup]="AthleteForm" (ngSubmit)="onSubmit()" >
            <label>
                Name: <input type="text" formControlName="name">
            </label>
@@ -35,14 +36,14 @@
    
            <br><br>
 
-           <p-button type="button" label="Sauvegarder" class="ui-button-rounded" (click)="createOneAthlete()"></p-button>
+           <p-button type="button" label="Sauvegarder" class="ui-button-rounded" styleClass="ui-button-warning" (click)="createOneAthlete()"></p-button>
 
         </form>
         </p-card>
 
         <br><br>
 
-        <p-card header="External Condition" [style]="{width: '900px'}">
+        <p-card header="External Condition" >
         <form [formGroup]="ExternalConditionForm" (ngSubmit)="onSubmit()">
            <label>
                Pressure ATM: <input type="text" formControlName="pressureatm">
@@ -62,14 +63,14 @@
    
            <br><br>
 
-           <p-button type="button" label="Sauvegarder" class="ui-button-rounded" (click)="createOneExternalCondition()"></p-button>
+           <p-button type="button" label="Sauvegarder" class="ui-button-rounded" styleClass="ui-button-warning" (click)="createOneExternalCondition()"></p-button>
 
         </form>
         </p-card>
 
     </div>    
-
+<!--
     <div class="p-col-2"></div>
-
+-->
 </div>
 
