@@ -331,21 +331,21 @@ private showChartPowerVersusZone() {
       yAxes: [{
         scaleLabel: {
           display: true,
-          labelString: 'Power',
+          labelString: 'Power Repartition',
           fontSize: 20
      }
       }],
       xAxes: [{
         scaleLabel: {
           display: true,
-          labelString: 'Zone',
+          labelString: 'Effort Zone',
           fontSize: 20
         }
       }]
     },
     title: {
       display: true,
-      text: 'Power versus Zone',
+      text: 'Power Repartition versus Effort Zone',
       fontSize: 20
     },
     legend: {

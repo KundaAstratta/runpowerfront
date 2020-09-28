@@ -26,9 +26,14 @@
 </div>
 
 
-<div class="p-col-8">
+<div class="p-col-10">
 
     <div class="p-grid" #started *ngIf="statisticsPowerActivity ">
+        <div class="p-col">
+            <p-card  [style]="{width: '200px'}">
+                <div> <h4>{{statisticsPowerActivity.date}}</h4></div>
+            </p-card>
+        </div>
         <div class="p-col">
             <p-card header="Power Average" [style]="{width: '200px'}">
                 <div> <h4>{{statisticsPowerActivity.poweraverage}}</h4></div>
@@ -45,9 +50,10 @@
             </p-card>
         </div>
         <div class="p-col">
-            <p-card header="Delta" [style]="{width: '200px'}">
-                <div> <h4>{{statisticsPowerActivity.deltafirstquartil}} + {{statisticsPowerActivity.deltathirdquartil}}</h4></div>
-            </p-card>
+            <p-card header="Ecart" [style]="{width: '200px'}">
+                <div> <h4>{{statisticsPowerActivity.powerfirstquartil}} - {{statisticsPowerActivity.powerthirdquartil}}</h4></div>
+                <div> <h4>{{statisticsPowerActivity.deltafirstquartil}} - {{statisticsPowerActivity.deltathirdquartil}}</h4></div>
+             </p-card>
         </div>
         <div class="p-col">
             <p-card header="Power Score" [style]="{width: '200px'}">
@@ -123,9 +129,9 @@
 </div>
 
 </div>
-
+<!--
 <div class="p-col-2"></div>
-
+-->
 </div>
 
 </ng-container>

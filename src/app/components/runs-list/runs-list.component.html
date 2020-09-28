@@ -64,8 +64,9 @@
             </td>
             <td>
                 <div class="p-col">
-                    <p-card header="Delta" [style]="{width: '200px'}">
-                        <div> <h4>{{statisticsPowerActivity.deltafirstquartil}} + {{statisticsPowerActivity.deltathirdquartil}}</h4></div>
+                    <p-card header="Ecart" [style]="{width: '200px'}">
+                        <div> <h4>{{statisticsPowerActivity.powerfirstquartil}} - {{statisticsPowerActivity.powerthirdquartil}}</h4></div>
+                        <div> <h4>{{statisticsPowerActivity.deltafirstquartil}} - {{statisticsPowerActivity.deltathirdquartil}}</h4></div>
                     </p-card>
                 </div>
             </td>
