@@ -19,6 +19,11 @@ import {CardModule} from 'primeng/card';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
+import {ProgressBarModule} from 'primeng/progressbar';
+import {InputTextModule} from 'primeng/inputtext';
+import { FormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +41,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ButtonModule,
     CardModule,
     ReactiveFormsModule,
+    ProgressBarModule,
+    InputTextModule,
+    FormsModule, 
   ],
   providers: [
     { provide: 'BACKEND_URL', useValue: 'http://localhost:8080'}

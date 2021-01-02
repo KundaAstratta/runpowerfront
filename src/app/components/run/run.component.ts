@@ -47,26 +47,32 @@ export class RunComponent implements OnInit {
 
   activityid: number;
 
+  athleteid: number;
+
+
   constructor(private runService: RunService,
               private activeRoute:  ActivatedRoute) { }
 
   ngOnInit() {
     this.activityid = Number(this.activeRoute.snapshot.paramMap.get('activityid'))
-    this.runService.getOneAthlete().subscribe(
+    this.athleteid = Number(sessionStorage.getItem('athleteid'));
+    this.athleteid = 1;
+
+    this.runService.getOneAthleteById(this.athleteid).subscribe(
       (athletepower) => {
         this.athlete = athletepower;
         console.log(this.athlete);
       }
     );
 
-    this.runService.getOneStatistics(this.activityid).subscribe(
+    this.runService.getOneStatistics(this.athleteid,this.activityid).subscribe(
       (statisticspower) => {
         this.statisticsPowerActivity = statisticspower;
         console.log(this.statisticsPowerActivity);
       }
     );
 
-    this.runService.getOneRun(this.activityid).subscribe((runpower) => {
+    this.runService.getOneRun(this.athleteid,this.activityid).subscribe((runpower) => {
         this.powerActivityLines = runpower;
         this.showSpinner = false;
         console.log(this.powerActivityLines);

@@ -7,8 +7,8 @@
 
 
 
-<div class="p-col-2">
-    <h2>Statistics Power Activity : {{statisticsPowerActivity.length}}</h2>
+<div class="p-col-2" >
+    <h2>Statistics Power Activity  {{statisticsPowerActivity.length}}</h2>
     <p-card header="Athlete" [style]="{width: '200px'}" #started *ngIf="athlete">
         <b>{{athlete.name}}</b>
         <br>
@@ -16,6 +16,34 @@
         <br>
         <b>{{athlete.mass}}</b> kg - HRmax : <b>{{athlete.hearthmax}}</b> bpm
     </p-card>
+    <p-card header="Prediction" [style]="{width: '200px'}" #started *ngIf="prediction">
+         Optimal Power <b>{{prediction.powerOptimal}}</b>
+        <br>
+        Optimal Pace <b>{{prediction.paceOptimal}}</b>
+        <br>
+        Easy Pace <b>{{prediction.paceEasy}}</b>
+        <br>
+        Threshold Pace <b>{{prediction.paceThreshold}}</b>
+        <br>
+        Min <b>{{prediction.paceMin}}</b>
+        <br>
+        Max <b>{{prediction.paceMax}}</b>
+        <br>
+        <br>
+        Marathon <b>{{prediction.timeForMarathon}}</b>
+        <br>
+        Pace <b>{{prediction.paceMarathon}}</b>
+        <br>
+        <br>
+        Half Marathon <b>{{prediction.timeForHalfMarathon}}</b>
+        <br>
+        Pace <b>{{prediction.paceHalfMarathon}}</b>
+        <br>
+        <br>
+        10 km <b>{{prediction.timeForTenKm}}</b>
+        <br>
+        Pace <b>{{prediction.paceTenKm}}</b>
+     </p-card>
 </div>
 
 
@@ -34,7 +62,7 @@
     </ng-template>
 
     <ng-template pTemplate="body" let-statisticsPowerActivity >
-        <tr [routerLink]="['/poweractivity',statisticsPowerActivity.id]">
+        <tr [routerLink]="['/poweractivity',statisticsPowerActivity.idpoweractivity]">
             <td>
                 <div class="p-col">
                     <p-card [style]="{width: '200px'}">
@@ -51,6 +79,14 @@
             </td>
             <td>
                 <div class="p-col">
+                    <p-card header="First Ecart" [style]="{width: '200px'}">
+                        <div> <h4>{{statisticsPowerActivity.powerfirstquartil}} </h4></div>
+                        <div> <h4>{{statisticsPowerActivity.deltafirstquartil}} </h4></div>
+                    </p-card>
+                </div>
+            </td>   
+            <td>
+                <div class="p-col">
                     <p-card header="Power Median" [style]="{width: '200px'}">
                         <div> <h4>{{statisticsPowerActivity.powermedian}}</h4></div>
                     </p-card>
@@ -62,18 +98,11 @@
                     </p-card>
                 </div>
             </td>
-            <td>
+             <td>
                 <div class="p-col">
-                    <p-card header="Ecart" [style]="{width: '200px'}">
-                        <div> <h4>{{statisticsPowerActivity.powerfirstquartil}} - {{statisticsPowerActivity.powerthirdquartil}}</h4></div>
-                        <div> <h4>{{statisticsPowerActivity.deltafirstquartil}} - {{statisticsPowerActivity.deltathirdquartil}}</h4></div>
-                    </p-card>
-                </div>
-            </td>
-            <td>
-                <div class="p-col">
-                    <p-card header="Power Score" [style]="{width: '200px'}">
-                        <div> <h4>{{statisticsPowerActivity.powerscore}}</h4></div>
+                    <p-card header="Third Ecart" [style]="{width: '200px'}">
+                        <div> <h4>{{statisticsPowerActivity.powerthirdquartil}}</h4></div>
+                        <div> <h4>{{statisticsPowerActivity.deltathirdquartil}}</h4></div>
                     </p-card>
                 </div>
             </td>
@@ -84,14 +113,13 @@
 
 </div>
 
+<br><br>
+
+<div class="border-container ombres-container" >   
+    <p-chart type="bubble" [data]="plotPowerMedianVersusDeviation" [options]="optionsPowerMedianVersusDeviation"></p-chart>
 </div>
 
-
-<!--
-<div class="p-col-2">
-3 
 </div>
--->
 
 
 </div>

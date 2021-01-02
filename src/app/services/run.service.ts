@@ -14,16 +14,17 @@ export class RunService {
   constructor(private http: HttpClient,
                       @Inject('BACKEND_URL') private baseUrl: string) {}
 
-  getOneAthlete(): Observable<AthleteDTO> {
-    return this.http.get<AthleteDTO>(`${this.baseUrl}/athlete/1`);
+  getOneAthleteById(athleteid: number): Observable<AthleteDTO> {
+    return this.http.get<AthleteDTO>(`${this.baseUrl}/athlete/${athleteid}`);
   }
 
-  getOneRun(activityid: number): Observable<PowerActivityDTO[]> {
-    return this.http.get<PowerActivityDTO[]>(`${this.baseUrl}/poweractivity/athlete/1/activity/${activityid}`);
+  getOneRun(idathlete : number, idactivity: number): Observable<PowerActivityDTO[]> {
+    return this.http.get<PowerActivityDTO[]>(`${this.baseUrl}/poweractivity/athlete/${idathlete}/activity/${idactivity}`);
   }
 
-  getOneStatistics(activityid): Observable<StatisticsPowerActivityDTO> {
-    return this.http.get<StatisticsPowerActivityDTO>(`${this.baseUrl}/statisticsactivity/athlete/1/activity/${activityid}`);
+  getOneStatistics(idathlete : number, idactivity: number): Observable<StatisticsPowerActivityDTO> {
+    return this.http.get<StatisticsPowerActivityDTO>(`${this.baseUrl}/statisticsactivity/athlete/${idathlete}/activity/${idactivity}`);
   } 
+
 
 }

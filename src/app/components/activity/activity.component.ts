@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivityService } from 'src/app/services/activity.service';
 
 import { FormControl, FormGroup} from '@angular/forms';
+import { RunService } from 'src/app/services/run.service';
+import { AthleteDTO } from 'src/app/shared-data/athlete-dto';
+
 
 @Component({
   selector: 'app-activity',
@@ -19,68 +22,98 @@ export class ActivityComponent implements OnInit {
   });
 
   ExternalConditionForm = new FormGroup({
-    pressureatm: new FormControl(''),
-    temperature: new FormControl(''),
-    humidity: new FormControl(''),
-    speedwind: new FormControl(''),
-
+    pressureatm: new FormControl('10000'),
+    temperature: new FormControl('10'),
+    humidity: new FormControl('50'),
+    speedwind: new FormControl('0'),
  });
 
+  public showButtonCreateAnActivity = false;
+  public showButtonTransformXML = true;
+  public showState = false;
+  public showButtonSaveAnAthlete = true; 
+  public fileXML: string;
+  valueNameFile: string;
+  athleteId: number;
+  athleteIdString : string; 
+  athlete: AthleteDTO = null;
 
-  constructor(private activityService: ActivityService) { }
+
+  constructor(private runService: RunService,
+              private activityService: ActivityService) { }
 
   ngOnInit() {
-
-  }
-
-  createOneExternalCondition(): any {
-    console.log("External Condition...");
-    this.activityService.createOneExternalCondition({id:1,idathlete:1,idpoweractivity:1,pressureatm:(this.ExternalConditionForm.value).pressureatm,temperature:(this.ExternalConditionForm.value).temperature,humidity:(this.ExternalConditionForm.value).humidity,speedwind:(this.ExternalConditionForm.value).speedwind}).subscribe(
-      {
-        complete(){
-         console.log('ended');
-       } 
-     }
-    );
-  }
-
-  createOneAthlete(): any {
-    console.log("Athlete...");
-    this.activityService.createOneAthlete({id:1,idathlete:1, name:(this.AthleteForm.value).name, surname:(this.AthleteForm.value).surname,mass:(this.AthleteForm.value).mass,hearthmax:(this.AthleteForm.value).hearthmax}).subscribe(
-      {
-        complete(){
-         console.log('ended');
-       } 
-     }
-    );
-  }
-
-  onTransformXMLtoActivity():any {
-    console.log("XML transformation");
-    this.activityService.transformXMLtoActivity().subscribe({
-      complete(){
-        console.log('ended');
-      }    
-    });  
-  }
-
-
-  onTransformActivityToPowerActivity():any {
-    console.log("PowerActivity transformation");
-    this.activityService.transformActivityToPowerActivity().subscribe({
-       complete(){
-        console.log('ended');
-      } 
-    });
-  }
-
-  onTransformPowerActivityToStatistics():any {
-    console.log('Statistics transformation');
-    this.activityService.transformPowerActivityToStatistics().subscribe({
-        complete(){
-          console.log('ended');
+    this.showButtonTransformXML = true;
+    this.showButtonCreateAnActivity = false;
+    this.showState = false;
+    this.showButtonSaveAnAthlete = true;
+    this.runService.getOneAthleteById(1).subscribe(
+      athletepower => {
+        this.athlete = athletepower;
+        console.log(this.athlete);
+        if (this.athlete.idathlete = 1) {
+          this.AthleteForm = new FormGroup({
+            name: new FormControl(this.athlete.name),
+            surname: new FormControl(this.athlete.surname),
+            mass: new FormControl(this.athlete.mass),
+            hearthmax: new FormControl(this.athlete.hearthmax)
+          });
+          this.showButtonSaveAnAthlete = false;
+        } else {
+          this.showButtonSaveAnAthlete = true;
         }
-    });
+      },
+      err => {
+        this.showButtonSaveAnAthlete = true;
+        console.log(err);}
+
+        )
   }
-  
+
+   async createOneAthlete() {
+    console.log("Athlete...");
+    
+    sessionStorage.clear(); 
+    const athleteid = await this.activityService.createOneAthlete({id:1,idathlete:1, name:(this.AthleteForm.value).name, surname:(this.AthleteForm.value).surname,mass:(this.AthleteForm.value).mass,hearthmax:(this.AthleteForm.value).hearthmax});
+    this.showButtonSaveAnAthlete = false;
+    this.athleteIdString = String(athleteid);
+    sessionStorage.setItem('athleteid', this.athleteIdString);
+    console.log(this.athleteIdString);
+    console.log('ended');
+  }
+
+  async onTransformXMLtoActivity(fileXML: string) {
+    try { 
+      console.log(fileXML);
+      console.log("XML transformation");
+      console.log(this.showButtonCreateAnActivity);
+      this.showState = true;
+      const message = await this.activityService.transformXMLtoActivity(fileXML);
+      console.log(message.message);
+
+      if (message.message ="exist") {
+        this.showButtonCreateAnActivity = true;
+        this.showButtonTransformXML = false;
+        this.showState = false;
+        console.log(this.showButtonCreateAnActivity);
+      }
+    }
+    catch (error) {
+      console.log("error " + error);
+    }
+  }
+
+  async createExternalConditionToPrediction() {
+    console.log("External Condition To Prediction...");
+    console.log(this.showButtonCreateAnActivity);
+    this.showState = true;
+    this.athleteId = Number(sessionStorage.getItem('athleteid'));
+    this.athleteId = 1;
+    console.log("athlete Id " + this.athleteId);
+    await this.activityService.createExternalConditionToPrediction({id:this.athleteId,idathlete:this.athleteId,idpoweractivity:1,pressureatm:(this.ExternalConditionForm.value).pressureatm,temperature:(this.ExternalConditionForm.value).temperature,humidity:(this.ExternalConditionForm.value).humidity,speedwind:(this.ExternalConditionForm.value).speedwind});
+    this.showButtonCreateAnActivity = false;
+    this.showButtonTransformXML = true;
+    this.showState = false ;
+    console.log(this.showButtonCreateAnActivity);
+  }
 }
