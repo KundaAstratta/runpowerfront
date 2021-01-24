@@ -1,5 +1,3 @@
-<p>activity works!</p>
-
 <div class="p-grid">
 
     <div class="p-col-2">
@@ -22,8 +20,19 @@
 
     <div class="p-col-10">
 
+      <br><br>
+
+      <p-table class="p-grid border-container ombres-container">
+         <ng-template pTemplate="header">
+             <tr>
+                 <th>Account Power Activity</th>    
+             </tr>
+         </ng-template>
+     </p-table>
+ 
+     <br><br>
         
-        <p-card header="Athlete" > 
+      <p-card header="Athlete" > 
         <form [formGroup]="AthleteForm" (ngSubmit)="onSubmit()" >
            <label>
                Name: <input type="text" formControlName="name">
@@ -44,13 +53,14 @@
            <br><br>
 
            <p-button type="button" label="Save an Athlete" class="ui-button-rounded" styleClass="ui-button-warning" (click)="createOneAthlete()" *ngIf="showButtonSaveAnAthlete"></p-button>
+           <p-button type="button" label="Update an Athlete" class="ui-button-rounded" styleClass="ui-button-warning" (click)="updateOneAthlete()" *ngIf="showButtonUpdateAnAthlete"></p-button>
 
         </form>
-        </p-card>
+      </p-card>
+        
+         <br><br>
 
-        <br><br>
-
-        <p-card header="External Condition" *ngIf="showButtonCreateAnActivity">
+       <p-card header="External Condition" *ngIf="showButtonCreateAnActivity">
         <form [formGroup]="ExternalConditionForm" (ngSubmit)="onSubmit()">
            <label>
                Pressure ATM: <input type="text" formControlName="pressureatm">
@@ -69,10 +79,8 @@
            </label>
    
            <br><br>
-
-
-        </form>
-        </p-card>
+         </form>
+      </p-card>
 
     </div>    
 </div>

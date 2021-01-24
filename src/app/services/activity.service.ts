@@ -12,12 +12,16 @@ export class ActivityService {
   constructor(private http: HttpClient,
     @Inject('BACKEND_URL') private baseUrl: string) {}
 
-  async createExternalConditionToPrediction(externalcondition : ExternalConditionDTO) {
-    return await this.http.post<ExternalConditionDTO>(`${this.baseUrl}/fromexternalconditiontoprediction/`,externalcondition).toPromise();
+  async createExternalConditionToPrediction(id :number, externalcondition : ExternalConditionDTO) {
+    return await this.http.post<ExternalConditionDTO>(`${this.baseUrl}/fromexternalconditiontoprediction/athlete/${id}`,externalcondition).toPromise();
   }
 
   async createOneAthlete(athlete : AthleteDTO) {
       return await this.http.post<AthleteDTO>(`${this.baseUrl}/fromsavetoupdate/`,athlete).toPromise();
+  }
+
+  async updateOneAthlete(id :number, athlete : AthleteDTO) {
+      return await this.http.put<AthleteDTO>(`${this.baseUrl}/athlete/update/id/${id}`,athlete).toPromise();
   }
 
   async transformXMLtoActivity(fileXML : string) {

@@ -4,6 +4,7 @@ import { PowerActivityDTO } from 'src/app/shared-data/power-activity-dto';
 import { StatisticsPowerActivityDTO } from 'src/app/shared-data/statistics-power-activity-dto';
 import { AthleteDTO } from 'src/app/shared-data/athlete-dto';
 import { ActivatedRoute } from '@angular/router';
+import { ExternalConditionDTO } from 'src/app/shared-data/external-condition-dto';
 
 @Component({
   selector: 'app-run',
@@ -14,6 +15,7 @@ export class RunComponent implements OnInit {
 
   powerActivityLines: PowerActivityDTO[] = [];
   statisticsPowerActivity: StatisticsPowerActivityDTO = null;
+  externalCondition: ExternalConditionDTO = null;
   athlete: AthleteDTO = null;
 
   showSpinner = true;
@@ -72,6 +74,13 @@ export class RunComponent implements OnInit {
       }
     );
 
+    this.runService.getOneExternalCondition(this.athleteid,this.activityid).subscribe(
+      (externalcondition) => {
+        this.externalCondition = externalcondition;
+        console.log(this.externalCondition);
+      }
+    );
+
     this.runService.getOneRun(this.athleteid,this.activityid).subscribe((runpower) => {
         this.powerActivityLines = runpower;
         this.showSpinner = false;
@@ -88,7 +97,7 @@ export class RunComponent implements OnInit {
           });
           this.dataPowerHearthrate.push({
           x: this.powerActivityLines[this.index].hearthrate,
-            y: this.powerActivityLines[this.index].power, r: 5
+            y: this.powerActivityLines[this.index].power, r: 2
           });
           this.dataPowerDistance.push({
           x: this.powerActivityLines[this.index].distance,
