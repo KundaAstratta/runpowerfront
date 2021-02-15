@@ -3,7 +3,7 @@
 <div class="p-grid">
 
 
-
+<!--
 <div class="p-col-2" >
     <h2>Statistics Power Activity  {{statisticsPowerActivity.length}}</h2>
     <p-card header="Athlete" [style]="{width: '200px'}" #started *ngIf="athlete">
@@ -14,7 +14,7 @@
         <b>{{athlete.mass}}</b> kg - HRmax : <b>{{athlete.hearthmax}}</b> bpm
     </p-card>
     <br><br>
-    <p-card header="Prediction" [style]="{width: '200px'}" #started *ngIf="prediction">
+    <p-card header="Estimation" [style]="{width: '200px'}" #started *ngIf="prediction">
          Optimal Power <b>{{prediction.powerOptimal}}</b>
         <br>
         Optimal Pace <b>{{prediction.paceOptimal}}</b>
@@ -43,39 +43,48 @@
         Pace <b>{{prediction.paceTenKm}}</b>
      </p-card>
 </div>
-
-
-
-<div class="p-col-10">
-
+-->
+<div class="p-col-12">
 
 <div class="border-container ombres-container" >
-
 <p-table [value]="statisticsPowerActivity" [scrollable]="true" scrollHeight="400px" class="ombres-container">
 
     <ng-template pTemplate="header">
         <tr>
-            <th> Statistics Power Activity</th>
+            <th>Date</th>
+            <th>Power Average</th>
+            <th>Power Median</th>
+
         </tr>
     </ng-template>
 
     <ng-template pTemplate="body" let-statisticsPowerActivity >
         <tr [routerLink]="['/poweractivity',statisticsPowerActivity.idpoweractivity]">
             <td>
-                <div class="p-col">
+                <h4>{{statisticsPowerActivity.date}}</h4>
+             <!-- <div class="p-col">
                     <p-card [style]="{width: '200px'}">
                         <div> <h4>{{statisticsPowerActivity.date}}</h4></div>
                     </p-card>
-                </div>
+                </div>-->
             </td>
             <td>
-                <div class="p-col">
+                <h4>{{statisticsPowerActivity.poweraverage}}</h4>
+             <!--   <div class="p-col">
                     <p-card header="Power Average" [style]="{width: '200px'}">
                         <div> <h4>{{statisticsPowerActivity.poweraverage}}</h4></div>
                     </p-card>
-                </div>
+                </div>-->
             </td>
             <td>
+                <h4>{{statisticsPowerActivity.powermedian}}</h4>
+            <!-- <div class="p-col">
+                    <p-card header="Power Median" [style]="{width: '200px'}">
+                        <div> <h4>{{statisticsPowerActivity.powermedian}}</h4></div>
+                    </p-card>
+                </div>-->
+            </td>   
+     <!--   <td>
                 <div class="p-col">
                     <p-card header="First Ecart" [style]="{width: '200px'}">
                         <div> <h4>{{statisticsPowerActivity.powerfirstquartil}} </h4></div>
@@ -83,12 +92,6 @@
                     </p-card>
                 </div>
             </td>   
-            <td>
-                <div class="p-col">
-                    <p-card header="Power Median" [style]="{width: '200px'}">
-                        <div> <h4>{{statisticsPowerActivity.powermedian}}</h4></div>
-                    </p-card>
-                </div>
             <td>
                 <div class="p-col">
                     <p-card header="Deviation" [style]="{width: '200px'}">
@@ -104,11 +107,88 @@
                     </p-card>
                 </div>
             </td>
+        -->    
         </tr>
     </ng-template>
+</p-table>
+</div>
 
+<br><br>
+<br><br>
+
+<p-table class="p-grid border-container ombres-container">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Estimation</th>    
+        </tr>
+    </ng-template>
 </p-table>
 
+ <div class="p-grid border-container ombres-container" >
+
+    <div class="p-col-3">
+        <p-card subheader="Power Optimal">
+            <b>{{prediction.powerOptimal}}</b>
+        </p-card>
+    </div>
+    <div class="p-col-2">
+        <p-card subheader="Pace">
+            <b>{{prediction.paceOptimal}}</b>
+        </p-card>
+    </div>
+    <div class="p-col-3">
+        <p-card subheader="Threshold">
+            <b>{{prediction.paceThreshold}}</b>
+        </p-card>
+    </div>
+    <div class="p-col-2">
+        <p-card subheader="Min Pace">
+            <b>{{prediction.paceMin}}</b>
+        </p-card>
+    </div>
+    <div class="p-col-2">
+        <p-card subheader="Max Pace">
+            <b>{{prediction.paceMax}}</b>
+        </p-card>
+    </div>
+
+</div>
+
+<br><br>
+<br><br>
+
+<p-table class="p-grid border-container ombres-container">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Prediction</th>    
+        </tr>
+    </ng-template>
+</p-table>
+
+<div class="p-grid border-container ombres-container" >
+
+    <div class="p-col-4">
+        <p-card subheader="Marathon">
+            <b>{{prediction.timeForMarathon}}</b>  
+            <br>  
+            <b>{{prediction.paceMarathon}}</b> / km   
+        </p-card>
+    </div>
+    <div class="p-col-4">
+        <p-card subheader="Half Marathon">
+            <b>{{prediction.timeForHalfMarathon}}</b>
+            <br>  
+            <b>{{prediction.paceHalfMarathon}}</b> / km   
+        </p-card>
+    </div>
+    <div class="p-col-4">
+        <p-card subheader="10 km">
+            <b>{{prediction.timeForTenKm}}</b>
+            <br>  
+            <b>{{prediction.paceTenKm}}</b> / km   
+        </p-card>
+    </div>
+    
 </div>
 
 <br><br>

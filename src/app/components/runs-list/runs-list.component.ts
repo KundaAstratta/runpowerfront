@@ -88,7 +88,7 @@ export class RunsListComponent implements OnInit {
         yAxes: [{
           scaleLabel: {
             display: true,
-            labelString: 'Power Median',
+            labelString: 'Power Median (W)',
             fontSize: 20
           },
           ticks: {
@@ -108,7 +108,7 @@ export class RunsListComponent implements OnInit {
       },
       title: {
         display: true,
-        text: 'Power Median versus Deviation',
+        text: 'Power Effort Repartition',
         fontSize: 20
       },
       legend: {

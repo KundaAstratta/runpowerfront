@@ -1,24 +1,7 @@
 <div class="p-grid">
 
-    <div class="p-col-2">
-
-      <p-card header="Activity" [style]="{width: '220px'}" > 
-       
-       <input type="text" pInputText [(ngModel)]="valueNameFile" *ngIf="showButtonTransformXML"> 
-       <br><br>
-       <p-button label="Transform a XML"   styleClass="ui-button-warning" (onClick)="onTransformXMLtoActivity(valueNameFile)" *ngIf="showButtonTransformXML"></p-button>
-       <br><br>
-       <p-button type="button" label="Create an Activity" class="ui-button-rounded" styleClass="ui-button-warning" (onClick)="createExternalConditionToPrediction()"  *ngIf="showButtonCreateAnActivity"></p-button>
-      </p-card>
-
-      <p-card [style]="{width: '220px'}" *ngIf="showState">
-            In progress .... 
-     </p-card>
-
-     <p-progressBar mode="indeterminate" [style]="{width: '220px', height: '6px'}" *ngIf="showState"></p-progressBar>
-    </div>
-
-    <div class="p-col-10">
+  
+    <div class="p-col-12">
 
       <br><br>
 
@@ -58,6 +41,24 @@
         </form>
       </p-card>
         
+         <br><br>
+
+         <p-card header="Activity" [style]="{width: '220px'}" > 
+       
+            <input type="text" pInputText [(ngModel)]="valueNameFile" *ngIf="showButtonTransformXML"> 
+            <br><br>
+            <p-button label="Transform a XML"   styleClass="ui-button-warning" (onClick)="onTransformXMLtoActivity(valueNameFile)" *ngIf="showButtonTransformXML"></p-button>
+            <br><br>
+            <p-button type="button" label="Create an Activity" class="ui-button-rounded" styleClass="ui-button-warning" (onClick)="createExternalConditionToPrediction()"  *ngIf="showButtonCreateAnActivity"></p-button>
+           </p-card>
+     
+           <p-card [style]="{width: '220px'}" *ngIf="showState">
+                 In progress .... 
+          </p-card>
+     
+          <p-progressBar mode="indeterminate" [style]="{width: '220px', height: '6px'}" *ngIf="showState"></p-progressBar>
+         
+
          <br><br>
 
        <p-card header="External Condition" *ngIf="showButtonCreateAnActivity">

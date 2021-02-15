@@ -97,7 +97,7 @@ export class RunComponent implements OnInit {
           });
           this.dataPowerHearthrate.push({
           x: this.powerActivityLines[this.index].hearthrate,
-            y: this.powerActivityLines[this.index].power, r: 2
+            y: this.powerActivityLines[this.index].power, r: 5
           });
           this.dataPowerDistance.push({
           x: this.powerActivityLines[this.index].distance,
@@ -122,7 +122,7 @@ export class RunComponent implements OnInit {
   private showChartPowerVersusHearthrate() {
     this.plotPowerVersusHearthrate = {
       datasets: [{
-        label: ['Power', 'HR'],
+        label: ['Power', 'BPM'],
         data: this.dataPowerHearthrate,
         backgroundColor: this.colorOfPowerPoint
       }]
@@ -132,7 +132,7 @@ export class RunComponent implements OnInit {
         yAxes: [{
           scaleLabel: {
             display: true,
-            labelString: 'Power',
+            labelString: 'Power (W)',
             fontSize: 20
           },
           ticks: {
@@ -142,7 +142,7 @@ export class RunComponent implements OnInit {
         xAxes: [{
           scaleLabel: {
             display: true,
-            labelString: 'HR',
+            labelString: 'BPM',
             fontSize: 20
           },
           ticks: {
@@ -152,7 +152,7 @@ export class RunComponent implements OnInit {
       },
       title: {
         display: true,
-        text: 'Power versus HR',
+        text: 'Power Effort Hearthrate',
         fontSize: 20
       },
       legend: {
@@ -258,7 +258,7 @@ private showChartPowerVersusDistance() {
       yAxes: [{
         scaleLabel: {
           display: true,
-          labelString: 'Power',
+          labelString: 'Power (W)',
           fontSize: 20
         },
         ticks: {
@@ -268,7 +268,7 @@ private showChartPowerVersusDistance() {
       xAxes: [{
         scaleLabel: {
           display: true,
-          labelString: 'Distance',
+          labelString: 'Distance (m)',
           fontSize: 20
         },
         ticks: {
@@ -278,7 +278,7 @@ private showChartPowerVersusDistance() {
     },
     title: {
       display: true,
-      text: 'Power versus Distance',
+      text: '',
       fontSize: 20
     },
     legend: {
@@ -300,7 +300,7 @@ private showChartPowerVersusDistance() {
       yAxes: [{
         scaleLabel: {
           display: true,
-          labelString: 'Power',
+          labelString: 'Power (W)',
           fontSize: 20
         },
         ticks: {
@@ -310,7 +310,7 @@ private showChartPowerVersusDistance() {
       xAxes: [{
         scaleLabel: {
           display: true,
-          labelString: 'Time',
+          labelString: 'Time (s)',
           fontSize: 20
         },
         ticks: {
@@ -320,7 +320,7 @@ private showChartPowerVersusDistance() {
     },
     title: {
       display: true,
-      text: 'Power versus Time',
+      text: '',
       fontSize: 20
     },
     legend: {
@@ -341,14 +341,17 @@ private showChartPowerVersusZone() {
       }
   ]
   };
-  this.optionsPowerVersusZone = {
+  this.optionsPowerVersusZone = { 
     scales: {
       yAxes: [{
+          ticks: {
+          display : false
+        },
         scaleLabel: {
           display: true,
-          labelString: 'Power Repartition',
+          labelString: 'Power Effort (W)',
           fontSize: 20
-     }
+        }
       }],
       xAxes: [{
         scaleLabel: {
@@ -360,7 +363,7 @@ private showChartPowerVersusZone() {
     },
     title: {
       display: true,
-      text: 'Power Repartition versus Effort Zone',
+      text: 'Power Effort Repartition',
       fontSize: 20
     },
     legend: {
