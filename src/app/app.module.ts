@@ -22,6 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {ProgressBarModule} from 'primeng/progressbar';
 import {InputTextModule} from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
+import { UploadComponent } from './components/upload/upload.component';
+import { FileUploadModule } from 'primeng/fileupload';
 
 
 @NgModule({
@@ -30,6 +32,7 @@ import { FormsModule } from '@angular/forms';
     RunComponent,
     RunsListComponent,
     ActivityComponent,
+    UploadComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import { FormsModule } from '@angular/forms';
     ProgressBarModule,
     InputTextModule,
     FormsModule, 
+    FileUploadModule,
   ],
   providers: [
     { provide: 'BACKEND_URL', useValue: 'http://localhost:8080'}
