@@ -19,11 +19,8 @@ import {CardModule} from 'primeng/card';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
-import {ProgressBarModule} from 'primeng/progressbar';
 import {InputTextModule} from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
-import { UploadComponent } from './components/upload/upload.component';
-import { FileUploadModule } from 'primeng/fileupload';
 
 
 @NgModule({
@@ -32,7 +29,6 @@ import { FileUploadModule } from 'primeng/fileupload';
     RunComponent,
     RunsListComponent,
     ActivityComponent,
-    UploadComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,10 +40,8 @@ import { FileUploadModule } from 'primeng/fileupload';
     ButtonModule,
     CardModule,
     ReactiveFormsModule,
-    ProgressBarModule,
     InputTextModule,
     FormsModule, 
-    FileUploadModule,
   ],
   providers: [
     { provide: 'BACKEND_URL', useValue: 'http://localhost:8080'}

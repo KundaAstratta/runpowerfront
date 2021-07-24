@@ -34,53 +34,7 @@
            </label>
    
            <br><br>
-
-           <p-button type="button" label="Save an Athlete" class="ui-button-rounded" styleClass="ui-button-warning" (click)="createOneAthlete()" *ngIf="showButtonSaveAnAthlete"></p-button>
-           <p-button type="button" label="Update an Athlete" class="ui-button-rounded" styleClass="ui-button-warning" (click)="updateOneAthlete()" *ngIf="showButtonUpdateAnAthlete"></p-button>
-
         </form>
-      </p-card>
-        
-         <br><br>
-
-         <p-card header="Activity" [style]="{width: '220px'}" > 
-       
-            <input type="text" pInputText [(ngModel)]="valueNameFile" *ngIf="showButtonTransformXML"> 
-            <br><br>
-            <p-button label="Transform a XML"   styleClass="ui-button-warning" (onClick)="onTransformXMLtoActivity(valueNameFile)" *ngIf="showButtonTransformXML"></p-button>
-            <br><br>
-            <p-button type="button" label="Create an Activity" class="ui-button-rounded" styleClass="ui-button-warning" (onClick)="createExternalConditionToPrediction()"  *ngIf="showButtonCreateAnActivity"></p-button>
-           </p-card>
-     
-           <p-card [style]="{width: '220px'}" *ngIf="showState">
-                 In progress .... 
-          </p-card>
-     
-          <p-progressBar mode="indeterminate" [style]="{width: '220px', height: '6px'}" *ngIf="showState"></p-progressBar>
-         
-
-         <br><br>
-
-       <p-card header="External Condition" *ngIf="showButtonCreateAnActivity">
-        <form [formGroup]="ExternalConditionForm" (ngSubmit)="onSubmit()">
-           <label>
-               Pressure ATM: <input type="text" formControlName="pressureatm">
-           </label>
-
-           <label>
-              Temperature: <input type="text" formControlName="temperature">
-           </label>
-
-           <label>
-              Humidity: <input type="text" formControlName="humidity">
-           </label>
-
-           <label>
-              Speed Wind: <input type="text" formControlName="speedwind">
-           </label>
-   
-           <br><br>
-         </form>
       </p-card>
 
     </div>    

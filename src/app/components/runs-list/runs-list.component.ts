@@ -10,6 +10,7 @@ import { PredictionDTO } from 'src/app/shared-data/prediction-dto';
   templateUrl: './runs-list.component.html',
   styleUrls: ['./runs-list.component.scss']
 })
+
 export class RunsListComponent implements OnInit {
 
   athlete: AthleteDTO = null;
@@ -34,16 +35,15 @@ export class RunsListComponent implements OnInit {
 
   ngOnInit() {
 
-    this.athleteId = Number(sessionStorage.getItem('athleteid'));
     this.athleteId = 1;
-    this.runService.getOneAthleteById(this.athleteId).subscribe(
+
+    this.runsListService.getOneAthleteById(this.athleteId).subscribe(
       (athletepower) => {
         this.athlete = athletepower;
         console.log(this.athlete);
       }
     );
 
-    
     this.runsListService.getLastPredictionForOneAthlete(this.athleteId).subscribe(
       (prediction) => {
         this.prediction = prediction;
@@ -51,8 +51,6 @@ export class RunsListComponent implements OnInit {
       }
     );    
 
-  
-   
     this.runsListService.getAllStatisticsActivityForOneAthlete(this.athleteId).subscribe(
       (statisticsPowerActivity) => {
           this.statisticsPowerActivity = statisticsPowerActivity;
@@ -65,15 +63,9 @@ export class RunsListComponent implements OnInit {
             });
             this.index = this.index +1;
             }
-          this.showChartPowerMedianVersusDeviation();
-         
+          this.showChartPowerMedianVersusDeviation();      
         });
-
-       
-   
-
   }
-
 
   private showChartPowerMedianVersusDeviation() {
     this.plotPowerMedianVersusDeviation = {
@@ -116,7 +108,5 @@ export class RunsListComponent implements OnInit {
       }
     };
     }
-
-   
 
 }

@@ -28,18 +28,6 @@ export class RunComponent implements OnInit {
   optionsPowerVersusDistance: any;
   dataPowerDistance: any[] = [];
 
-  plotPowerVersusSpeed: any;
-  optionsPowerVersusSpeed: any;
-  dataPowerSpeed: any[] = [];
-
-  plotPowerVersusPace: any;
-  optionsPowerVersusPace: any;
-  dataPowerPace: any[] = [];
-
-  plotPowerVersusHearthrate: any;
-  optionsPowerVersusHearthrate: any;
-  dataPowerHearthrate: any[] = [];
-
   plotPowerVersusZone: any;
   optionsPowerVersusZone: any;
 
@@ -51,13 +39,12 @@ export class RunComponent implements OnInit {
 
   athleteid: number;
 
-
   constructor(private runService: RunService,
               private activeRoute:  ActivatedRoute) { }
 
   ngOnInit() {
     this.activityid = Number(this.activeRoute.snapshot.paramMap.get('activityid'))
-    this.athleteid = Number(sessionStorage.getItem('athleteid'));
+ //   this.athleteid = Number(sessionStorage.getItem('athleteid'));
     this.athleteid = 1;
 
     this.runService.getOneAthleteById(this.athleteid).subscribe(
@@ -87,18 +74,6 @@ export class RunComponent implements OnInit {
         console.log(this.powerActivityLines);
         this.index = 0;
         while (this.index < this.powerActivityLines.length) {
-          this.dataPowerSpeed.push({
-          x: this.powerActivityLines[this.index].speed,
-            y: this.powerActivityLines[this.index].power, r: 5
-          });
-          this.dataPowerPace.push({
-          x: this.powerActivityLines[this.index].pace,
-            y: this.powerActivityLines[this.index].power, r: 5
-          });
-          this.dataPowerHearthrate.push({
-          x: this.powerActivityLines[this.index].hearthrate,
-            y: this.powerActivityLines[this.index].power, r: 5
-          });
           this.dataPowerDistance.push({
           x: this.powerActivityLines[this.index].distance,
             y: this.powerActivityLines[this.index].power, r: 2
@@ -111,138 +86,9 @@ export class RunComponent implements OnInit {
         }
         this.showChartPowerVersusTime();
         this.showChartPowerVersusDistance();
-        this.showChartPowerVersusSpeed();
-        this.showChartPowerVersusPace();
-        this.showChartPowerVersusHearthrate();
         this.showChartPowerVersusZone();
       });
 
-  }
-
-  private showChartPowerVersusHearthrate() {
-    this.plotPowerVersusHearthrate = {
-      datasets: [{
-        label: ['Power', 'BPM'],
-        data: this.dataPowerHearthrate,
-        backgroundColor: this.colorOfPowerPoint
-      }]
-    };
-    this.optionsPowerVersusHearthrate = {
-      scales: {
-        yAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: 'Power (W)',
-            fontSize: 20
-          },
-          ticks: {
-            stepSize: 20
-          }
-        }],
-        xAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: 'BPM',
-            fontSize: 20
-          },
-          ticks: {
-            stepSize: 2
-          }
-        }]
-      },
-      title: {
-        display: true,
-        text: 'Power Effort Hearthrate',
-        fontSize: 20
-      },
-      legend: {
-        display: false
-      }
-    };
-  }
-
-  private showChartPowerVersusPace() {
-    this.plotPowerVersusPace = {
-      datasets: [{
-        label: ['Power', 'Pace'],
-        data: this.dataPowerPace,
-        backgroundColor: this.colorOfPowerPoint
-      }]
-    };
-    this.optionsPowerVersusPace = {
-      scales: {
-        yAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: 'Power',
-            fontSize: 20
-          },
-          ticks: {
-            stepSize: 20
-          }
-        }],
-        xAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: 'Pace',
-            fontSize: 20
-          },
-          ticks: {
-            stepSize: 2
-          }
-        }]
-      },
-      title: {
-        display: true,
-        text: 'Power versus Pace',
-        fontSize: 20
-      },
-      legend: {
-        display: false
-      }
-    };
-  }
-
-  private showChartPowerVersusSpeed() {
-    this.plotPowerVersusSpeed = {
-      datasets: [{
-        label: ['Power', 'Speed'],
-        data: this.dataPowerSpeed,
-        backgroundColor: this.colorOfPowerPoint
-      }]
-    };
-    this.optionsPowerVersusSpeed = {
-      scales: {
-        yAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: 'Power',
-            fontSize: 20
-          },
-          ticks: {
-            stepSize: 20
-          }
-        }],
-        xAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: 'Speed',
-            fontSize: 20
-          },
-          ticks: {
-            stepSize: 2
-          }
-        }]
-      },
-      title: {
-        display: true,
-        text: 'Power versus Speed',
-        fontSize: 20
-      },
-      legend: {
-        display: false
-      }
-    };
   }
 
 private showChartPowerVersusDistance() {
@@ -371,6 +217,5 @@ private showChartPowerVersusZone() {
     }
   };
 }
-
 
 }
