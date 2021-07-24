@@ -28,7 +28,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 # runpowerfront
 
 # Installation :
-npm install primeng 
-npm install @angular/cdk 
+installer nodejs (pour npm)
+
+installer angular/cli : sudo npm install -g @angular/cli
+
+Puis:
+npm install primeng  
+npm install @angular/cdk  
 npm install primeicons
 npm install chart.js --save
