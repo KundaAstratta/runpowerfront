@@ -177,7 +177,7 @@ private showChartPowerVersusDistance() {
 
 private showChartPowerVersusZone() {
   this.plotPowerVersusZone = {
-  labels: ['Easy', 'Marathon', 'Threshold', 'Interval', 'Repetition'],
+  labels: ['Easy', 'Moderate', 'Threshold', 'Interval', 'Repetition'],
   datasets: [
       {
           label: 'Power Zone',
